@@ -65,7 +65,8 @@ public class Game {
      */
     private void playAgain() {
         System.out.println("You want to play again? (y/n): ");
-        String answer = scan.nextLine(); //sees what player decides and saves it as answer
+        String answer = scan.next(); 
+        scan.nextLine(); //will clear the program before another Round loop starts so no error
         
         if (answer.equals("n")) {
             quitGame = true; //if they say no(n) the game is quit
