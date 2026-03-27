@@ -5,7 +5,7 @@
  * @author (Sterling D. Fields)
  * @version (3/27/2026)
  */
-public class guess
+public class Guess
 {
     /**
      * Makes it so that a guess only counts if it's 5 digits or player quits.

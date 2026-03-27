@@ -71,7 +71,7 @@ public class Round
         while (!validGuess) {
             System.out.print("Guess a number or enter -1 to quit: ");
             g = scan.nextInt();
-            validGuess = guess.checkGuess(g);
+            validGuess = Guess.checkGuess(g);
         }
         
         
@@ -94,8 +94,8 @@ public class Round
         
         //if snumber isn't guessed exactly, it checks for the apples & oranges
         } else if (g != -1) {
-            int a = guess.countApples(g, secret);
-            int o = guess.countOranges(g, secret);
+            int a = Guess.countApples(g, secret);
+            int o = Guess.countOranges(g, secret);
             
             printResults(a, o);
         }
