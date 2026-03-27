@@ -65,25 +65,59 @@ public class Round
      * @return integer the user puts in
      */
     private int askForGuess() {
-        System.out.print("Guess a number or enter -1 to quit: ");
-        int guess = scan.nextInt();
+        int g = 0;
+        boolean validGuess = false;
         
-        if (guess == -1) {
+        while (!validGuess) {
+            System.out.print("Guess a number or enter -1 to quit: ");
+            g = scan.nextInt();
+            validGuess = guess.checkGuess(g);
+        }
+        
+        
+        if (g == -1) {
             quit = true; //checks if the player opts out
         } else {
             numGuesses++; //so the guess only counts if they hadn't quit
         }
-        return guess;
+        return g;
     }
     
     /**
      * Sees if the guess matches the secret #
+     * If it doesn't it prints the apples and oranges info
      * @param g is the Players guess
      */
     private void checkWin(int g) {
         if (g == secret) {
             win = true;
+        
+        //if snumber isn't guessed exactly, it checks for the apples & oranges
+        } else if (g != -1) {
+            int a = guess.countApples(g, secret);
+            int o = guess.countOranges(g, secret);
+            
+            printResults(a, o);
         }
+    }
+    
+    /**
+     * Prints results on a line
+     * @param apples number of correct # with position
+     * @param oranges number of correct # w/o position
+     */
+    private void printResults(int apples, int oranges) {
+        if (apples == 0 && oranges == 0){
+            System.out.println("nada");
+        } else {
+            for (int i = 0; i < apples; i++) {
+                System.out.print("apple ");
+            }
+            for (int i = 0; i < oranges; i++) {
+                System.out.print("oranges ");
+            }
+        }
+        System.out.println();
     }
     
     /**
