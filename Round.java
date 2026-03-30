@@ -29,13 +29,19 @@ public class Round
         scan = s;
     }
     
+    /**
+     * Generates a random 5-digit number not starting with 0 and unique numbrs
+     * @return random 5-digit snumber for the round
+     */
     private int generateSecret() {
         Random rand = new Random();
         int diosSecret = 0;
         boolean defUnique = false;
         
         while (!defUnique) {
-            diosSecret = rand.nextInt(10000);
+            //90000 + 10000 will never result with a zero in the first digit 
+            //so it won't start at 0 and adding 10000 will guarantee 5-digits
+            diosSecret = rand.nextInt(90000 + 10000);
             
             if (Guess.hasUniqueDigits(diosSecret)) {
                 defUnique = true;
@@ -43,6 +49,7 @@ public class Round
         }
         return diosSecret;
     }
+    
     /**
      * Accessor methods that allow the other classes to get what is listed without being able to change them
      * @return the # player is trying to guess
@@ -50,24 +57,28 @@ public class Round
     public int getSecret() {
         return secret;
     }
+    
     /**
      * @return the # of guesses player makes
      */
     public int getNumGuesses() {
         return numGuesses;
     }
+    
     /**
      * @return win if the player guesses right
      */
     public boolean getWin() {
         return win;
     }
+    
     /**
      * @return quit if the player enters -1 
      */
     public boolean getQuit() {
         return quit;
     }
+    
     /**
      * @return the scanner used 
      */
