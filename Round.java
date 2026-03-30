@@ -41,7 +41,7 @@ public class Round
         while (!defUnique) {
             //90000 + 10000 will never result with a zero in the first digit 
             //so it won't start at 0 and adding 10000 will guarantee 5-digits
-            diosSecret = rand.nextInt(90000 + 10000);
+            diosSecret = rand.nextInt(90000) + 10000;
             
             if (Guess.hasUniqueDigits(diosSecret)) {
                 defUnique = true;
