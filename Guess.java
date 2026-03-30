@@ -1,7 +1,7 @@
 
 /**
  * Write a description of class Guess here.
- *
+ * Checks if guesses are valid and handles which type of fruit it goes under.
  * @author (Sterling D. Fields)
  * @version (3/27/2026)
  */
@@ -15,6 +15,11 @@ public class Guess
     public static boolean checkGuess(int g) {
         if ((g < 10000 || g > 99999) && g != -1) {
             System.out.println("Error – guess must be 5 digits");
+            return false;
+        }
+        
+        if (!hasUniqueDigits(g)) {
+            System.out.println("Error - guess must have unique digits");
             return false;
         }
         return true;
@@ -62,6 +67,27 @@ public class Guess
             }
         }
         return oranges;
+    }
+    
+    /**
+     *  makes sure they're no repeating digits 
+     *  @param num 5-digit number to check
+     *  @return true if all digits are different and false if any are repeated
+     */
+    public static boolean hasUniqueDigits(int num) {
+        String s = "" + num;
+        // this will pick a digit
+        for(int i = 0; i < s.length(); i++) {
+            String currentDigit = s.substring(i, i + 1);
+            // compares the digit to every number after it, and if it finds a duplicate returns false
+            for (int j = i + 1; j < s.length(); j++) {
+                String compareDigit = s.substring(j, j + 1);
+                if (currentDigit.equals(compareDigit)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
 

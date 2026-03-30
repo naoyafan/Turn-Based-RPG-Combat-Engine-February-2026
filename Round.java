@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import java.util.Random;
 /**
  * Write a description of class Round here.
  * The Round class is gonna give you the secret #, guesses that are made, and current games status
@@ -21,13 +22,27 @@ public class Round
      */
     //puts the secret number to 12345 and resets the game stats
     public Round(Scanner s) {
-        secret = 12345;
+        secret = generateSecret();
         numGuesses = 0;
         win = false;
         quit = false;
         scan = s;
     }
     
+    private int generateSecret() {
+        Random rand = new Random();
+        int diosSecret = 0;
+        boolean defUnique = false;
+        
+        while (!defUnique) {
+            diosSecret = rand.nextInt(10000);
+            
+            if (Guess.hasUniqueDigits(diosSecret)) {
+                defUnique = true;
+            }
+        }
+        return diosSecret;
+    }
     /**
      * Accessor methods that allow the other classes to get what is listed without being able to change them
      * @return the # player is trying to guess
