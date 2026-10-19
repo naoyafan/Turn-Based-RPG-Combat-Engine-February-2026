@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Guess
+comment0.text=\n\ Write\ a\ description\ of\ class\ Guess\ here.\n\ Checks\ if\ guesses\ are\ valid\ and\ handles\ which\ type\ of\ fruit\ it\ goes\ under.\n\ @author\ (Sterling\ D.\ Fields)\n\ @version\ (3/27/2026)\n
+comment1.params=g
+comment1.target=boolean\ checkGuess(int)
+comment1.text=\n\ Makes\ it\ so\ that\ a\ guess\ only\ counts\ if\ it's\ 5\ digits\ or\ player\ quits\n\ @param\ g\ guess\ entered\ by\ player\n\ @return\ true\ if\ guess\ meets\ criteria\ and\ false\ if\ not\n
+comment2.params=guess\ secret
+comment2.target=int\ countApples(int,\ int)
+comment2.text=\n\ Counts\ what\ digits\ are\ in\ secret\ number\ in\ same\ position\n\ @param\ guess\ 5-digit\ guess\n\ @param\ secret\ the\ 5-digit\ secret\ number\n\ @return\ number\ of\ apples\ (which\ are\ matches\ in\ same\ position)\n
+comment3.params=guess\ secret
+comment3.target=int\ countOranges(int,\ int)
+comment3.text=\n\ Counts\ what\ digits\ are\ in\ secret\ number\ but\ not\ in\ same\ position\n\ @param\ guess\ 5-digit\ guess\n\ @param\ secret\ the\ 5-digit\ secret\ number\n\ @return\ number\ of\ oranges(which\ are\ correct\ numbers\ in\ wrong\ position)\n
+comment4.params=num
+comment4.target=boolean\ hasUniqueDigits(int)
+comment4.text=\n\ \ makes\ sure\ they're\ no\ repeating\ digits\ \n\ \ @param\ num\ 5-digit\ number\ to\ check\n\ \ @return\ true\ if\ all\ digits\ are\ different\ and\ false\ if\ any\ are\ repeated\n
+numComments=5
